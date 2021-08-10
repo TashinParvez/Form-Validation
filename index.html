@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Form-Validation</title>
+        <style>
+            body{
+                background-color: #3498db;
+                color: white;
+                height: 96.9vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+            #container{
+                text-align: center;
+                background-color: white;
+                padding: 50px;
+                margin:0px 0px 0px 0px;
+            }
+            h1{
+                font-size: 40px;
+                color: black;
+                text-align: center;
+            }
+            input{
+                padding: 10px 49px 10px 13px;
+                margin: 0px 0px 20px 0px;
+                color: black;
+                font-size: 17px;
+            }
+            #submit{
+                color: white;
+                background-color: #3498db;
+                cursor: pointer;
+                border: 0;
+                width: 279px;
+                height: 44px;
+                margin: 0px;
+                padding: 0px;
+            }
+            #copy{
+                position: relative;
+                top: 167px;
+                opacity: .5;
+            }
+            .error{
+                margin: 0px;
+                top: -13px;
+                font-size: 13px;
+                text-align: left;
+                color: red;
+                padding: 0px;
+                position: relative;
+                font-family: serif;
+                font-weight: 600;
+                opacity: 0.9;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+
+            <h1>Login</h1>
+            <form action="" onsubmit="return validateform()">
+
+
+
+                <input type="text" placeholder="@username" id="username"
+                    autocomplete="off"><br>
+                <p id="usererror" class="error"></p>
+
+                <input type="password" placeholder="Password" id="password"><br>
+                <p id="passerror" class="error"></p>
+
+
+
+
+
+                <input type="submit" id="submit">
+            </form>
+
+        </div>
+        <!-- <p id="copy">Copyright © 2021 | All Rights Reserved by Tashin Parvez</p> -->
+        <script>
+
+            function validateform(){
+                let text = document.getElementById("username");
+                let pass = document.getElementById("password");
+                let access = 1;
+
+                if(text.value == ""){
+                    document.getElementById("usererror").innerHTML="Please input Username";
+                    access = 0;
+                }
+                else if( text.value.length < 6){
+                    document.getElementById("usererror").innerHTML="Username requre minmun 6 character";
+                    access = 0;
+                }else{
+                    document.getElementById("usererror").innerHTML="";
+                    access = 1;
+
+                }
+
+                if(pass.value == ""){
+                    document.getElementById("passerror").innerHTML="Please input your Password";
+                    access = 0;
+                }
+                else if( pass.value.length < 6){
+                    document.getElementById("passerror").innerHTML="Password requre minmun 6 character";
+                    access = 0;
+                }else{
+                    document.getElementById("passerror").innerHTML="";
+                    access = 1;
+                }
+
+
+                if(access){
+                    return true;
+                }else{
+                    return false;
+                    
+                }
+            }
+        </script>
+    </body>
+</html>
